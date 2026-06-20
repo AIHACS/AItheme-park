@@ -6,10 +6,10 @@ const attractions = [
     name: "絵師AI",
     icon: "🎨",
     accent: "#ef5da8",
-    short: "描きたい世界観を言葉にして、画像生成AI向けのプロンプトを一緒に作ります。",
-    tags: ["イラスト", "世界観", "画像プロンプト"],
+    short: "描きたい世界観を言葉にして、画像生成AI向けのAIへの指示文を一緒に作ります。",
+    tags: ["イラスト", "世界観", "画像指示文"],
     prompt: `あなたは、AI初心者でも使いやすい「絵師AI」です。
-私が作りたい絵のイメージを聞き出し、画像生成AIに入れやすいプロンプトを作ってください。
+私が作りたい絵のイメージを聞き出し、画像生成AIに入れやすいAIへの指示文を作ってください。
 
 進め方:
 1. まず、私に以下を1問ずつ質問してください。
@@ -18,7 +18,7 @@ const attractions = [
    - 色
    - 画風
    - 使いたい場面
-2. 回答をもとに、画像生成AI用のプロンプトを日本語版と英語版で作ってください。
+2. 回答をもとに、画像生成AI用のAIへの指示文を日本語版と英語版で作ってください。
 3. 最後に、もっと良くするための追加アイデアを3つ出してください。
 
 私はAI初心者なので、専門用語は短く説明しながら進めてください。`,
@@ -153,7 +153,7 @@ const attractions = [
    - 作れる時間
 2. 回答をもとに、アプリの概要、主要機能、画面構成を作ってください。
 3. 最初に作るべきMVPを3つの機能に絞ってください。
-4. 最後に、AIに実装を頼むための追加プロンプトを作ってください。
+4. 最後に、AIに実装を頼むための追加のAIへの指示文を作ってください。
 
 私はAI初心者なので、難しい技術用語は避け、必要な場合は短く説明してください。`,
   },
@@ -401,7 +401,7 @@ const diagnosisQuestions = [
         label: "画像や投稿",
         detail: "イラスト、曲、SNS投稿を作りたい",
         weights: { art: 4, music: 3, sns: 3, presentation: 1 },
-        ideas: ["同じテーマで、画像プロンプト、投稿文、タイトル案を作り比べる"],
+        ideas: ["同じテーマで、画像用のAIへの指示文、投稿文、タイトル案を作り比べる"],
       },
       {
         value: "plan",
@@ -518,7 +518,7 @@ const diagnosisQuestions = [
 
 const recommendationIdeas = {
   art: [
-    "SNSアイコン用の画像プロンプトを作る",
+    "SNSアイコン用の画像向けAIへの指示文を作る",
     "好きな世界観を入力して、背景やキャラクター案を増やす",
     "スライドや資料に使う挿絵のアイデアを出す",
   ],
@@ -549,7 +549,7 @@ const recommendationIdeas = {
   ],
   app: [
     "作りたいアプリを画面構成と機能に分解する",
-    "AIに実装を頼むためのプロンプトを作る",
+    "AIに実装を頼むためのAIへの指示文を作る",
     "最初に作るべき3機能だけに絞る",
   ],
   study: [
@@ -811,10 +811,10 @@ function getDiagnosisText() {
 function openModal(attraction) {
   activeAttraction = attraction;
   lastFocusedElement = document.activeElement;
-  modalCategory.textContent = "PROMPT TICKET";
+  modalCategory.textContent = "AI GUIDE TICKET";
   modalTitle.textContent = `${attraction.icon} ${attraction.name}`;
   modalDescription.textContent =
-    "このプロンプトをコピーしてChatGPTに貼ると、AIが質問しながら体験を進めてくれます。";
+    "このAIへの指示文をコピーしてChatGPTに貼ると、AIが質問しながら体験を進めてくれます。";
   promptText.value = attraction.prompt;
   copyStatus.textContent = "";
   modal.classList.add("is-open");
@@ -842,7 +842,7 @@ async function copyPrompt() {
     document.execCommand("copy");
   }
 
-  copyStatus.textContent = `${activeAttraction.name}のプロンプトをコピーしました。`;
+  copyStatus.textContent = `${activeAttraction.name}のAIへの指示文をコピーしました。`;
 }
 
 renderAttractions();
@@ -944,7 +944,7 @@ document.querySelector("[data-open-howto]").addEventListener("click", () => {
 2. 診断結果でおすすめAIを確認する
 3. 「テーマパークへ行く」を押す
 4. 気になるAIアトラクションを選ぶ
-5. 専用プロンプトをコピーする
+5. 専用のAIへの指示文をコピーする
 6. ChatGPTを開いて貼り付ける
 7. AIからの質問に答えて、作りたいものを作ってみる
 
