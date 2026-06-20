@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIテーマパーク</title>
+    <meta
+      name="description"
+      content="AI初学者がURLを開くだけで遊べる、ChatGPTプロンプト型のAIテーマパーク。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar" aria-label="サイト情報">
+        <a class="brand" href="#top" aria-label="AIテーマパーク トップへ">
+          <span class="brand-mark">AI</span>
+          <span>AIテーマパーク</span>
+        </a>
+        <a class="nav-link" href="#attractions">アトラクション</a>
+      </nav>
+
+      <section id="top" class="hero-inner" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">AI未経験者に火をつける、はじめての遊び場</p>
+          <h1 id="hero-title">好きなAIを選んで、プロンプトを貼るだけ。</h1>
+          <p class="lead">
+            7つのAIアトラクションから気になるものを選び、専用プロンプトをコピーしてChatGPTで遊べます。
+            APIキーもログイン機能も不要。URLを開いた人が、その場でAI体験を始められます。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#attractions">遊びに行く</a>
+            <button class="secondary-link" type="button" data-open-howto>使い方</button>
+          </div>
+        </div>
+
+        <div class="park-visual" aria-hidden="true">
+          <div class="orbit orbit-a"></div>
+          <div class="orbit orbit-b"></div>
+          <div class="gate">
+            <span class="gate-sign">PROMPT PARK</span>
+            <span class="gate-arch"></span>
+          </div>
+          <div class="ride ride-paint">絵</div>
+          <div class="ride ride-music">音</div>
+          <div class="ride ride-work">職</div>
+          <div class="ride ride-trip">旅</div>
+          <div class="ride ride-food">食</div>
+          <div class="ride ride-love">恋</div>
+          <div class="ride ride-app">作</div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="intro-title">
+        <div>
+          <p class="section-kicker">WHY</p>
+          <h2 id="intro-title">「難しそう」を「ちょっと触ってみたい」に変える。</h2>
+        </div>
+        <p>
+          AI初心者にとって最初の壁は、何を聞けばいいかわからないこと。
+          このサイトは、目的別の入口とそのまま使えるプロンプトを用意して、最初の一歩を軽くします。
+        </p>
+      </section>
+
+      <section id="attractions" class="attractions" aria-labelledby="attractions-title">
+        <div class="section-heading">
+          <p class="section-kicker">ATTRACTIONS</p>
+          <h2 id="attractions-title">7つのAIアトラクション</h2>
+          <p>気になるカードの「遊ぶ」を押すと、専用プロンプトが開きます。</p>
+        </div>
+
+        <div class="grid" id="attractionGrid"></div>
+      </section>
+
+      <section class="coming-soon" aria-labelledby="soon-title">
+        <div>
+          <p class="section-kicker">NEXT</p>
+          <h2 id="soon-title">次に入れる予定</h2>
+        </div>
+        <p>
+          「おすすめ診断」機能を追加すると、質問に答えるだけで今の自分に合うAIアトラクションへ案内できます。
+          まずは7つの入口を完成させ、デモで遊べる状態を優先しています。
+        </p>
+      </section>
+    </main>
+
+    <div class="modal" id="promptModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <section
+        class="modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalDescription"
+      >
+        <button class="icon-button close-button" type="button" data-close-modal aria-label="閉じる">
+          ×
+        </button>
+        <p class="modal-kicker" id="modalCategory"></p>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+        <textarea id="promptText" readonly spellcheck="false"></textarea>
+        <div class="modal-actions">
+          <button class="primary-button" type="button" id="copyAndOpenButton">
+            コピーしてChatGPTで開く
+          </button>
+          <button class="ghost-button" type="button" id="copyOnlyButton">コピーだけ</button>
+        </div>
+        <p class="status" id="copyStatus" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
